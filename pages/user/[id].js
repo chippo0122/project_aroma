@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { clearUser, setUser } from '../../redux/currentUserSlice'
+import { pushMsg } from '../../redux/message'
 
 import { styled, Container, Typography, Button, Box, Grid } from "@mui/material"
 import { createTheme, ThemeProvider } from '@mui/material/styles'
@@ -58,6 +59,7 @@ export default function id() {
         const res = await axios.post('/api/signout');
         //clear current data after signout
         dispatch(clearUser());
+        dispatch(pushMsg({value: 'Logout successfully', success: true}));
         if (res) {
             router.push('/');
         } else {
@@ -69,6 +71,7 @@ export default function id() {
         //sent verification mail
         try {
             await axios.post('/api/accountverify');
+            dispatch(pushMsg({value: 'Verification Mail has been sent to your box', success: true}));
         } catch (err) {
             alert(err);
         }

@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setViewWidth } from '../redux/viewSice'
 import { Container, styled, Box } from '@mui/material'
+import Spreader from './Spreader'
 import LoginL from '../assets/shutterstock_323534993@3x.jpg'
 import LoginM from '../assets/shutterstock_323534993@2x.jpg'
 import LoginS from '../assets/shutterstock_323534993.jpg'
@@ -54,7 +55,8 @@ export default function BackgroundSet(props) {
 
     return (
         <OutterBox ref={Outter}>
-            <BgImg src={ImgPath} className='bg-img' alt="" />
+            <Spreader />
+            <BgImg src={ImgPath} alt="background-img" />
             <CustomContainer>
                 {children}
             </CustomContainer>

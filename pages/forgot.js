@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from "next/router"
+import { useDispatch } from 'react-redux'
+import { pushMsg } from '../redux/message'
 import axios from 'axios'
 
 import { Card, Typography, TextField, Button, Container, styled } from "@mui/material"
@@ -19,6 +21,7 @@ const InnerContainer = styled(Container)(({ theme }) => ({
 }))
 
 export default function Forgot() {
+  const dispatch = useDispatch();
   const router = useRouter();
 
   const [email, setEmail] = useState('');
@@ -41,6 +44,7 @@ export default function Forgot() {
 
     try {
       await axios.post('/api/passwordreset', {email});
+      dispatch(pushMsg({value: 'Reset Password Mail has been sent to your box', success: true}))
       router.push('/');
     } catch (error) {
       alert(error)

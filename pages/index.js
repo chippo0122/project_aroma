@@ -6,6 +6,8 @@ import { Card, Typography, TextField, Box, Button, Link, styled, Container } fro
 import BackgroundSet from "../components/BackgroundSet"
 
 import { setUser } from '../redux/currentUserSlice'
+import { pushMsg } from '../redux/message'
+import { CodeOffOutlined } from '@mui/icons-material';
 
 const InnerContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
@@ -78,11 +80,11 @@ export default function Home(props) {
         } else if (code.includes('user')) {
           setErrorMsg(state => ({ ...state, email: code }));
         } else {
-          alert(message);
+          dispatch(pushMsg({value: code, success: false}));
         }
       }
     } catch (err) {
-      alert(err);
+      dispatch(pushMsg({value: code, success: false}));
     }
 
   }

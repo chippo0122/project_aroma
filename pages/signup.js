@@ -6,6 +6,7 @@ import BackgroundSet from "../components/BackgroundSet"
 import RouteController from "../components/RouteController"
 import { useRouter } from 'next/router'
 import { setUser } from '../redux/currentUserSlice'
+import { pushMsg } from '../redux/message'
 import axios from 'axios';
 
 const InnerContainer = styled(Container)(({ theme }) => ({
@@ -91,6 +92,7 @@ export default function signup() {
         localStorage.setItem('currentUser', JSON.stringify({ uid, displayName, email }));
 
         await dispatch(setUser({ uid, displayName, email }));
+        dispatch(pushMsg({value: 'Verification Mail has been sent to your box', success: true}));
         setSign(true);
 
       } else {
@@ -101,7 +103,7 @@ export default function signup() {
         } else if (code.includes('password')) {
           setErrorMsg(state => ({ ...state, password: code }));
         } else {
-          alert(code);
+          dispatch(pushMsg({value: code, success: false}));
         }
       }
     } catch (err) {
