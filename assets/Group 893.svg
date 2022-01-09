@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+    <g data-name="Group 893">
+        <path data-name="Rectangle 336" style="fill:transparent" d="M0 0h28v28H0z"/>
+        <path data-name="Union 4" d="M2962.755 28a1.334 1.334 0 1 1 0-2.668h3.912c5.666 0 9.327-2.838 9.327-7.227s-3.661-7.227-9.327-7.227h-10.112l5.932 5.932a1.334 1.334 0 1 1-1.887 1.89l-8.209-8.209a1.335 1.335 0 0 1 0-1.887L2960.6.391a1.334 1.334 0 0 1 1.887 1.886l-5.932 5.932h10.112c7.063 0 11.995 4.069 11.995 9.9S2973.73 28 2966.667 28z" transform="translate(-2951.331)" style="fill:#212121"/>
+    </g>
+</svg>
