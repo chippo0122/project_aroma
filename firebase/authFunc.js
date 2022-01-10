@@ -16,6 +16,7 @@ const createAuth = async (userData) => {
     const { email, password, username } = userData;
     try {
         const userCredential = await createUserWithEmailAndPassword(Auth, email, password);
+        //update username after creating account
         await updateAuthName(username);
         const user = await userCredential.user;
         return user;

@@ -25,7 +25,7 @@ const CustomOutput = styled(Typography)(({ theme }) => ({
     height: '71px'
 }))
 
-export default function verify() {
+export default function VerifyID() {
     const router = useRouter();
 
     const [checked, setChecked] = useState(true);

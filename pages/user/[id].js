@@ -46,7 +46,7 @@ const theme = createTheme({
 });
 
 
-export default function id() {
+export default function UserID() {
     //router & redux
     const router = useRouter();
     const dispatch = useDispatch();

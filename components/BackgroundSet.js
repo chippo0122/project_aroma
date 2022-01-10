@@ -44,10 +44,12 @@ export default function BackgroundSet(props) {
     const dispatch = useDispatch();
     const viewWidth = useSelector(state => state.view.viewWidth);
 
+    //slect proper background image
     const LoginPath = viewWidth > 900 ? LoginL.src : (viewWidth > 600 ? LoginM.src : LoginS.src);
     const SuccessPath = viewWidth > 900 ? SuccessL.src : (viewWidth > 600 ? SuccessM.src : SuccessS.src);
     const ImgPath = loginSuccess ? SuccessPath : LoginPath;
 
+    //set view width after component mounted
     useEffect(() => {
         const { offsetWidth } = Outter.current;
         dispatch(setViewWidth(offsetWidth));

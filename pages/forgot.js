@@ -43,6 +43,7 @@ export default function Forgot() {
     }
 
     try {
+      //send email and remind user
       await axios.post('/api/passwordreset', {email});
       dispatch(pushMsg({value: 'Reset Password Mail has been sent to your box', success: true}))
       router.push('/');

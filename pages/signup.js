@@ -21,7 +21,7 @@ const InnerContainer = styled(Container)(({ theme }) => ({
   }
 }))
 
-export default function signup() {
+export default function Signup() {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -49,8 +49,8 @@ export default function signup() {
   }
 
   const signup = async () => {
-    setErrorMsg({ email: '', password: '', username: '', check: '' });
     //reset msg
+    setErrorMsg({ email: '', password: '', username: '', check: '' });
     const rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     const { email, password, username, check } = inputStorage;
     //every input supossed to be inserted
@@ -92,7 +92,7 @@ export default function signup() {
         localStorage.setItem('currentUser', JSON.stringify({ uid, displayName, email }));
 
         await dispatch(setUser({ uid, displayName, email }));
-        dispatch(pushMsg({value: 'Verification Mail has been sent to your box', success: true}));
+        dispatch(pushMsg({ value: 'Verification Mail has been sent to your box', success: true }));
         setSign(true);
 
       } else {
@@ -103,7 +103,7 @@ export default function signup() {
         } else if (code.includes('password')) {
           setErrorMsg(state => ({ ...state, password: code }));
         } else {
-          dispatch(pushMsg({value: code, success: false}));
+          dispatch(pushMsg({ value: code, success: false }));
         }
       }
     } catch (err) {

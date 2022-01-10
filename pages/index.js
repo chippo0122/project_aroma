@@ -7,7 +7,6 @@ import BackgroundSet from "../components/BackgroundSet"
 
 import { setUser } from '../redux/currentUserSlice'
 import { pushMsg } from '../redux/message'
-import { CodeOffOutlined } from '@mui/icons-material';
 
 const InnerContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
@@ -21,7 +20,7 @@ const InnerContainer = styled(Container)(({ theme }) => ({
   }
 }))
 
-export default function Home(props) {
+export default function Home() {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -31,8 +30,8 @@ export default function Home(props) {
 
 
   const loginApply = async () => {
-    setErrorMsg({ email: '', password: '' });
     //reset meg
+    setErrorMsg({ email: '', password: '' });
     const rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     //every input supossed to be inserted
     if (!(email && password)) {
@@ -80,11 +79,11 @@ export default function Home(props) {
         } else if (code.includes('user')) {
           setErrorMsg(state => ({ ...state, email: code }));
         } else {
-          dispatch(pushMsg({value: code, success: false}));
+          dispatch(pushMsg({ value: code, success: false }));
         }
       }
     } catch (err) {
-      dispatch(pushMsg({value: code, success: false}));
+      dispatch(pushMsg({ value: code, success: false }));
     }
 
   }
